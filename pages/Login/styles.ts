@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
-import { THEME_COLOR, WINDOW_HEIGHT, WINDOW_WIDTH } from "../../constants";
+import { StyleSheet } from "react-native"
+
+import { THEME_COLOR, WINDOW_HEIGHT, WINDOW_WIDTH } from "../../constants"
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   go_back_title: {
     fontFamily: "GilroyBold",
     fontSize: 20,
-    color: "#fff"
+    color: "#fff",
   },
   greettings_header: {
     padding: 30,
@@ -35,14 +36,14 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontFamily: "GilroyBold",
     color: "#fff",
-    textAlign: "center"
+    textAlign: "center",
   },
   greettings_header_subtitle: {
     fontSize: 16,
     fontFamily: "GilroyMedium",
     color: "#FFFFFFCA",
     marginTop: 5,
-    textAlign: "center"
+    textAlign: "center",
   },
   form_container: {
     marginTop: 10,
@@ -50,7 +51,6 @@ const styles = StyleSheet.create({
     padding: 20,
     width: WINDOW_WIDTH,
     position: "relative",
-
   },
   form_item: {
     width: "100%",
@@ -59,12 +59,12 @@ const styles = StyleSheet.create({
   form_title: {
     fontSize: 16,
     color: "#fff",
-    fontFamily: "GilroyBold"
+    fontFamily: "GilroyBold",
   },
   form_warning: {
     fontSize: 14,
     color: "#FF9317",
-    fontFamily: "GilroyMedium"
+    fontFamily: "GilroyMedium",
   },
   form_textinput: {
     backgroundColor: "#1C1C1DF9",
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   form_button_text: {
     color: "#fff",
-    fontFamily: "GilroyBold"
+    fontFamily: "GilroyBold",
   },
   form_textinput_focus: {
     borderColor: THEME_COLOR,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     height: WINDOW_HEIGHT / 2,
     alignItems: "center",
     justifyContent: "center",
-  }
+  },
 })
 
 export default styles

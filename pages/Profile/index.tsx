@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
-import Layout from "../../layout";
-import React from "react";
-import { useSelector } from "react-redux";
+import React from "react"
+import { Text } from "react-native"
+import { useSelector } from "react-redux"
+
+import Layout from "../../layout"
 
 function Profile() {
-  const session = useSelector((state: any) => state.session);
+  const session = useSelector((state: any) => state.session)
 
   return (
     <Layout>

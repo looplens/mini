@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
-import Animated, { runOnJS, useSharedValue, useAnimatedStyle, useAnimatedGestureHandler, withSpring } from "react-native-reanimated";
-import { LongPressGestureHandler } from "react-native-gesture-handler";
+import React from "react"
+import { LongPressGestureHandler } from "react-native-gesture-handler"
+import Animated, {
+  runOnJS,
+  useSharedValue,
+  useAnimatedStyle,
+  useAnimatedGestureHandler,
+  withSpring,
+} from "react-native-reanimated"
 
 export default function ScaleButton({
   children,
@@ -14,7 +20,7 @@ export default function ScaleButton({
   contentContainerStyle,
   handlerProps,
 }: ScaleButton) {
-  const scale = useSharedValue(1);
+  const scale = useSharedValue(1)
   const sz = useAnimatedStyle(() => {
     return {
       transform: [
@@ -22,32 +28,25 @@ export default function ScaleButton({
           scale: withSpring(scale.value, springConfig),
         },
       ],
-    };
-  });
+    }
+  })
 
   const gestureHandler = useAnimatedGestureHandler({
     onStart: () => {
-      scale.value = activeScale;
+      scale.value = activeScale
     },
     onCancel: () => {
-      scale.value = 1;
+      scale.value = 1
     },
     onEnd: () => {
       runOnJS(onPress)()
-      scale.value = 1;
+      scale.value = 1
     },
   })
 
   return (
-    <LongPressGestureHandler
-      minDurationMs={0.5}
-      maxDist={10}
-      {...handlerProps}
-      onGestureEvent={gestureHandler}
-    >
-      <Animated.View style={[sz, contentContainerStyle]}>
-        {children}
-      </Animated.View>
+    <LongPressGestureHandler minDurationMs={0.5} maxDist={10} {...handlerProps} onGestureEvent={gestureHandler}>
+      <Animated.View style={[sz, contentContainerStyle]}>{children}</Animated.View>
     </LongPressGestureHandler>
   )
 }

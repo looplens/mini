@@ -1,0 +1,10 @@
+android
+ios
+
+assets
+
+.expo
+node_modules
+
+Dockerfile
+docker-*

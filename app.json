@@ -13,9 +13,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.looplens.mini"
@@ -25,15 +23,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/android-icon.png",
         "backgroundColor": "#000000"
       },
-      "permissions": [
-        "CAMERA",
-        "CAMERA_ROLL",
-        "VIBRATE",
-        "FOREGROUND_SERVICE"
-      ],
+      "permissions": ["CAMERA", "CAMERA_ROLL", "VIBRATE", "FOREGROUND_SERVICE"],
       "package": "com.looplens.mini"
     },
     "web": {

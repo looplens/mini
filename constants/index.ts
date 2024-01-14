@@ -11,6 +11,7 @@ export const GRAY_COLOR = "#130B22"
 export const TABS_BAR_HEIGHT = WINDOW_WIDTH / 7.5
 export const TABS_ITEM_SIZE = 27
 export const TABS_ITEM_COLOR = "#6E6E78"
+export const TABS_ITEM_COLOR_SECONDARY = "#000"
 
 // API
 export const BASE_URL = Platform.OS === "android" ? "http://192.168.1.4:8000" : "http://localhost:8000"

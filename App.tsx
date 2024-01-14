@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Provider, useSelector } from 'react-redux';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useFonts } from 'expo-font';
-import { store } from './store';
-import Profile from './pages/Profile';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Welcome from './pages/Welcome';
-import { BASE_URL } from './constants';
-import { Text } from "react-native"
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { useFonts } from "expo-font"
+import React from "react"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
+import { SafeAreaProvider } from "react-native-safe-area-context"
+import { Provider, useSelector } from "react-redux"
 
-const Stack = createNativeStackNavigator();
+import Feed from "./pages/Feed"
+import Login from "./pages/Login"
+import Profile from "./pages/Profile"
+import Register from "./pages/Register"
+import Welcome from "./pages/Welcome"
+import { store } from "./store"
+
+const Stack = createNativeStackNavigator()
 
 function Routes() {
-  const session = useSelector((state: any) => state.session);
+  const session = useSelector((state: any) => state.session)
 
   return (
-    <Stack.Navigator screenOptions={{
-      headerShown: false,
-      animation: 'slide_from_right'
-    }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        animation: "slide_from_right",
+      }}>
       {session.session_activated ? (
-        <Stack.Screen name="Profile" component={Profile} />
+        <>
+          <Stack.Screen name="Feed" component={Feed} />
+          <Stack.Screen name="Profile" component={Profile} />
+        </>
       ) : (
         <>
           <Stack.Screen name="Welcome" component={Welcome} />
@@ -33,7 +37,7 @@ function Routes() {
         </>
       )}
     </Stack.Navigator>
-  );
+  )
 }
 
 export default function App() {
@@ -59,5 +63,5 @@ export default function App() {
         </SafeAreaProvider>
       </Provider>
     </GestureHandlerRootView>
-  );
+  )
 }
