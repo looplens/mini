@@ -1,9 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Profile from './pages/Profile';
+import React, { useState, useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider, useSelector } from 'react-redux';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useFonts } from 'expo-font';
+import { store } from './store';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
-import { useFonts } from "expo-font";
+import Register from './pages/Register';
+import Welcome from './pages/Welcome';
+import { BASE_URL } from './constants';
+import { Text } from "react-native"
+
+const Stack = createNativeStackNavigator();
+
+function Routes() {
+  const session = useSelector((state: any) => state.session);
+
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+      animation: 'slide_from_right'
+    }}>
+      {session.session_activated ? (
+        <Stack.Screen name="Profile" component={Profile} />
+      ) : (
+        <>
+          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Register" component={Register} />
+        </>
+      )}
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   const [loaded] = useFonts({
@@ -19,17 +50,14 @@ export default function App() {
   if (!loaded) return null
 
   return (
-    <SafeAreaProvider>
-      <Login />
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <Routes />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
