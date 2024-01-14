@@ -1,9 +1,11 @@
 {
   "expo": {
-    "name": "mini",
+    "name": "Looplens",
     "slug": "mini",
     "version": "1.0.0",
+    "description": "Looplens, a new way to communicate freely with your friends and communities securely and privately.",
     "orientation": "portrait",
+    "privacy": "unlisted",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -15,16 +17,44 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.looplens.mini"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "CAMERA",
+        "CAMERA_ROLL",
+        "VIBRATE",
+        "FOREGROUND_SERVICE"
+      ],
+      "package": "com.looplens.mini"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9fd38661-b60b-4064-8cf9-0a49e6532407"
+      }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
+        }
+      ]
+    ]
   }
 }
